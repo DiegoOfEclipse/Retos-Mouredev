@@ -58,23 +58,23 @@ for numero in range(10, 56):
 
 import time 
 
-Caminar = True
-Hambre = 0
+caminar = True
+hambre = 0
 
 
 while True:
-    if Caminar:
+    if caminar:
         print("Estoy Caminando")
-        Hambre += 1
-        if Hambre >= 30:
+        hambre += 1
+        if hambre >= 30:
             Caminar = False
             print("¡Tengo mucha Hambre! Me detengo a comer.")
     
     else:
         print("Estoy Comiendo")
-        Hambre -= 1
-        if Hambre == 0:
-            Caminar = True
+        hambre -= 1
+        if hambre == 0:
+            caminar = True
             print("¡Ya estoy lleno! A caminar de nuevo.")
     
     time.sleep(0.1)

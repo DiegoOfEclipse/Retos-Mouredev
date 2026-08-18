@@ -36,8 +36,8 @@ print(f_textos_anteriores)
 dicho_popular = ["Nadie", "es", "profeta", "en", "su", "tierra"]
 print(" ".join(dicho_popular))
 
-si = ("y")
-no = ("n")
+si = ["y", "Y"]
+no = ["n", "N"]
 
 def seleccionar_nombre():
     while True:
