@@ -67,7 +67,7 @@ while True:
         print("Estoy Caminando")
         hambre += 1
         if hambre >= 30:
-            Caminar = False
+            caminar = False
             print("¡Tengo mucha Hambre! Me detengo a comer.")
     
     else:
