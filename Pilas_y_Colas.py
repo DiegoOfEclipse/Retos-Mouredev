@@ -48,16 +48,13 @@ def añadir_persona():
             decision_final_s = detectar_s()
             decision_final_hyn = detectar_hyn()
             print(f"Se {decision_final_hyn} puesto {len(cola_supermercado)} {decision_final_s} en la Cola")
-            respuesta
         elif respuesta in confirmacion2 and len(cola_supermercado) > 0:
             salida_persona()
         elif respuesta in confirmacion2:
             print("No has Añadido a Nadie Aun!")
-            respuesta
         else:
             print("bash: x: command not found")
             break
-añadir_persona()
 
 pila = []
 
@@ -77,13 +74,19 @@ def añadir_objeto():
             objeto = input("Que Objeto Quieres Añadir? ")
             pila.append(objeto)
             print(f"Se ha puesto {objeto} en la Lista")
-            respuesta
         elif respuesta in confirmacion2:
             procesar_objeto()
         elif respuesta in confirmacion2:
             print("No has Añadido a Nadie Aun!")
-            respuesta
         else:
             print("bash: x: command not found")
             break
-añadir_objeto()
+
+def eleccion_pilas_colas():
+    while True:
+        respuesta = input("Que Deseas Utilizar? Pilas o Colas? ")
+        if respuesta == "Colas":
+            añadir_persona()
+        elif respuesta == "Pilas":
+            añadir_objeto()
+eleccion_pilas_colas()
