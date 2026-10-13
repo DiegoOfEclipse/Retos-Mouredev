@@ -17,6 +17,11 @@ class Minero:
         self.carro_de_mina = 3
         self.casco_con_bombillita = 0.1
         self.Diamantes = 0
+        self.salir = 0
+        self.c1_s = None
+        self.v1_s = None
+        self.c2_s = None
+        self.v2_s = None
         self.compra_y_vete_cacahuete = {
             "Pico_Picadura": False,
             "Carro_De_Mina": False,
@@ -114,15 +119,12 @@ class Minero:
             print("¡Bienvenido de vuelta, muchachín!")
             time.sleep(1)
         else:
+            (clave1, valor1), (clave2, valor2) = random.sample(list(self.objetos.items()), 2)
             print("¡Pero mira a quién tenemos por aquí! Saludos, viajero. Soy Seam, el vendedor de estas tierras! Desterrado a las minas por mis increíbles precios, en el buen y mal sentido. Ja, ja, ja")
             time.sleep(8)
-            
-        if len(self.objetos) == 0:
-            print("No quedan objetos únicos disponibles.")
-            return
-
-        k_muestras = min(2, len(self.objetos))
-        (clave1, valor1), (clave2, valor2) = random.sample(list(self.objetos.items()), k=k_muestras)   
+        if self.salir == 1:
+            self.salir = 0
+            (clave1, valor1), (clave2, valor2) = (self.c1_s, self.v1_s), (self.c2_s, self.v2_s)
         print("")
         print(f"{clave1} y Cuesta {valor1} Minerales")
         print(f"{clave2} y Cuesta {valor2} Minerales")
@@ -137,17 +139,21 @@ class Minero:
                 print("¡Dicho y hecho!")
                 self.minerales = self.minerales - valor1 
                 getattr(mi_personaje, comprar1)()
+                (clave1, valor1), (clave2, valor2) = random.sample(list(self.objetos.items()), 2)
                 break
             elif respuesta == comprar2 and self.minerales >= valor2:
                 time.sleep(1)
                 print("¡Dicho y hecho!")
                 self.minerales = self.minerales - valor2
                 getattr(mi_personaje, comprar2)()
+                (clave1, valor1), (clave2, valor2) = random.sample(list(self.objetos.items()), 2)
                 break
             elif respuesta.lower() == "salir":
                 time.sleep(1)
                 print("Nos veremos otra vez... o no. Ja, ja, ja")
                 time.sleep(2)
+                (self.c1_s, self.v1_s), (self.c2_s, self.v2_s) = (clave1, valor1), (clave2, valor2)
+                self.salir = self.salir + 1
                 break
             else:
                 time.sleep(1)
@@ -170,7 +176,6 @@ class Minero:
                 time.sleep(1)
                 print("Un momento...")
                 clave, valor = random.choice(list(minerales_esenciales.items()))
-                self.descansos = self.descansos + 1
                 if clave == "Diamante":
                     time.sleep(2)
                     print(f"{self.nombre} vio un diamante entre los minerales!")
