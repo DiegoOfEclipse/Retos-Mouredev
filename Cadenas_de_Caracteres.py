@@ -3,25 +3,15 @@ from string import Template
 
 texto = "Tomate"
 
-print(texto[0])
-print(texto[1])
-print(texto[2])
-print(texto[3])
-
-print(texto[2])
-print(texto[3])
-print(texto[4])
-print(texto[5])
-
+print(texto[0],texto[1], texto[2], texto[3])
+print(texto[2], texto[3], texto[4], texto[5])
 
 subcadena_unida = "Running Sky"
 
 sub0 = subcadena_unida[0:7]
 sub1 = subcadena_unida[8::]
 sub2 = subcadena_unida[::2]
-print(sub0)
-print(sub1)
-print(sub2)
+print(sub0, sub1, sub2)
 
 nombre = "Don Felipe"
 
@@ -36,8 +26,8 @@ print(f_textos_anteriores)
 dicho_popular = ["Nadie", "es", "profeta", "en", "su", "tierra"]
 print(" ".join(dicho_popular))
 
-si = ["y", "Y"]
-no = ["n", "N"]
+si = ["y", "si"]
+no = ["n", "no"]
 
 def seleccionar_nombre():
     while True:
@@ -47,11 +37,12 @@ def seleccionar_nombre():
                 print("Nombre no Introducido, Intentelo de Nuevo")
             else:
                 confirmacion = input(f"Estas Seguro que Este es Tu Nombre? ")
-                if confirmacion not in [si, no]:
+                confirmacion_lowkey = confirmacion.lower()
+                if confirmacion_lowkey not in (si + no):
                     print("Confirmacion No Valida!")
-                elif confirmacion == no:
+                elif confirmacion_lowkey in no:
                     print("Vale, Cual es tu Nombre?")
-                elif confirmacion == si: 
+                elif confirmacion_lowkey in si: 
                     print("Nombre Seleccionado!")
                     print("Hola entonces {}, ".format(nombre) * 3)
                     break
@@ -76,8 +67,8 @@ print(nueva_comida_fav)
 pink = "She0is1a2mew3mew4girl5who6is7ready8to9play"
 pink_espaciada = re.sub(r"\d", " ", pink)
 print(pink_espaciada)
-cancion_rancia = "Socs Foot Seven the Tung Tung Man"
-cancion_arreglada = cancion_rancia[:1] + "i" + cancion_rancia[2:]
+cancion_rancia = "Six Foot Seven the Tung Tung Man"
+cancion_arreglada = cancion_rancia[:9] + "NO" + cancion_rancia[14:]
 print(cancion_arreglada)
 
 pink_x = re.sub(r"[0-9]", "X", pink)
@@ -88,9 +79,7 @@ t = Template("En Todo el Mundo, Existen alrededor de $cantidad $animal, ya que E
 print(t.substitute(cantidad = 3200, animal = "Tigre"))
 
 print(texto.isalpha())
-print(si.isdigit())
 print(pink.isalnum())
-print(no.isdecimal())
 
 def comprobador(palabra1, palabra2):
     palabra1 = palabra1.lower().replace(" ", "")
