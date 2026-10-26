@@ -8,11 +8,11 @@ Lineas
 
 # Este Comentario Contiene el Sitio Web de Python: https://es.python.org/
 
-Variable = 10
+Variable = "Este String se Almacena en la Variable"
 CONSTANTE = 20
-int = "Numeros Enteros"
-float = "Numeros Con Decimales"
+int = 10 
+float = 6.7
 str = "Cadena De Texto"
-bool = "Booleano (True or False)"
+bool = True
 
 print("¡Hola, Python!")
