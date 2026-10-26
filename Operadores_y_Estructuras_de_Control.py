@@ -21,24 +21,24 @@ print(10 == 10, 10 != 20, 20 > 10, 10 < 20, 20 >= 10, 10 <= 20)
 
 print(20 > 10 and 30 > 20, 30 > 20 or 50 < 40, not(20 > 30 and 50 > 40))
 
-Burger = "Pan"
-Pizza = "Peperoni"
-print("Peperoni" in Pizza)
-print("Peperoni" not in Burger)
+hamburguesa = "Pan"
+pizza = "Peperoni"
+print("Peperoni" in pizza)
+print("Peperoni" not in hamburguesa)
 
-Cubo_1 = 10
-Cubo_2 = 20
+cubo_1 = 10
+cubo_2 = 20
 
-if Cubo_1 >= Cubo_2:
+if cubo_1 >= cubo_2:
     print("Parece Que el Cubo 1 Es Mas Grande!")
-elif Cubo_1 == Cubo_2:
+elif cubo_1 == cubo_2:
     print("Son Igual de Grandes!")
 else:
     print("Parece Que el Cubo 2 Es Mas Grande!")
 
-Animales = ["Gato", "Conejo", "Tortuga", "Perro"]
+animales = ["Gato", "Conejo", "Tortuga", "Perro"]
 
-for especies in Animales:
+for especies in animales:
     if especies == "Gato":
         print("Mira Un " + especies + " !")
     elif especies == "Conejo":
